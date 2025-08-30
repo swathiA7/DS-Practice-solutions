@@ -1,0 +1,9 @@
+n=int(input())
+a=list(map(int,input().split()))
+aa=0
+ma=0
+for i in a:
+    aa=aa+i
+    if aa>ma:
+        ma=aa
+print(ma)
