@@ -1,4 +1,4 @@
-Welcome to my collection of solutions for **Data Structures problems** on [HackerRank](https://www.hackerrank.com/)!  
+Welcome to my collection of solutions for **Data Structures problems** on different coding platforms!  
 This repository is part of my journey to master core data structures by solving real problems using Java (and possibly other languages later).
 
 ---
