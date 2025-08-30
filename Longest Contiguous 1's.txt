@@ -1,0 +1,12 @@
+n=int(input())
+a=list(map(int,input().split()))
+ml=0
+cl=0
+for i in a:
+    if i==1:
+        cl=cl+1
+        if cl>ml:
+            ml=cl
+    else:
+            cl=0
+print(ml)
