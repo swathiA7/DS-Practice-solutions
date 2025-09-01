@@ -1,0 +1,26 @@
+n= int(input())
+l=[]
+for _ in range(n):
+    c=input().split()
+    if c[0]=="append":
+        l.append(int(c[1]))
+        print(*l)
+    elif c[0]=="count":
+        print(l.count(int(c[1])))
+    elif c[0]=="reverse":
+        l.reverse()
+        print(*l)
+    elif c[0]=="insert":
+        l.insert(int(c[1]),int(c[2]))
+        print(*l)
+    elif c[0]=="sort":
+        l.sort()
+        print(*l)
+    elif c[0]=="index":
+        x=int(c[1])
+        print(l.index(x)if x in l else -1)
+    elif c[0]=="length":
+        print(len(l))
+    elif c[0]=="extend":
+        l=l+l[:]
+        print(*l)
