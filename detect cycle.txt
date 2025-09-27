@@ -1,0 +1,65 @@
+import java.util.*;
+
+class Node {
+    int data;
+    Node next;
+
+    Node(int d) {
+        this.data = d;
+        this.next = null;
+    }
+}
+
+public class Solution {
+
+    // Function to detect cycle in linked list
+    public static int hasCycle(Node head) {
+        Node slow = head, fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;          // move 1 step
+            fast = fast.next.next;     // move 2 steps
+
+            if (slow == fast) {
+                return 1; // cycle detected
+            }
+        }
+        return 0; // no cycle
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int T = scanner.nextInt(); // number of test cases
+
+        while (T-- > 0) {
+            int n = scanner.nextInt();    // number of nodes
+            int pos = scanner.nextInt();  // position to form cycle (-1 means no cycle)
+
+            Node head = null, tail = null;
+            Node[] nodes = new Node[n];
+
+            for (int i = 0; i < n; i++) {
+                int val = scanner.nextInt();
+                Node newNode = new Node(val);
+                nodes[i] = newNode;
+
+                if (head == null) {
+                    head = newNode;
+                    tail = newNode;
+                } else {
+                    tail.next = newNode;
+                    tail = newNode;
+                }
+            }
+
+            // Create cycle if pos is valid
+            if (pos != -1 && n > 0) {
+                tail.next = nodes[pos];
+            }
+
+            System.out.println(hasCycle(head));
+        }
+
+        scanner.close();
+    }
+}
